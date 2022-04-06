@@ -4,13 +4,12 @@
   "description": "Landing page for natours",
   "main": "index.",
   "scripts": {
-    "watch:sass": "node-sass --watch sass/*.scss --output css/",
+    "watch:sass": "node-sass --watch sass/ --output css/",
     "devserver": "live-server",
     "start": "npm-run-all --parallel devserver watch:sass",
-    "concat:css": "concat css/index.css css/public.css css/",
     "prefix:css": "postcss css/*.css --use autoprefixer -d build/",
-    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
-    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+    "compress:css": "node-sass sass/ -o css/ --output-style compressed",
+    "build:css": "npm-run-all  concat:css prefix:css compress:css"
   },
   "browserslist": [
     "defaults",
